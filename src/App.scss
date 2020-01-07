@@ -1,0 +1,175 @@
+@import "styles/colors";
+@import "styles/mixin";
+@import "styles/vars";
+
+body{
+  background-color:$body-background ;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  #root{
+    @include flex(column,center);
+    .App {
+      @include flex(column,center);
+      background-color: $white;
+      max-width: $container-max-with;
+      min-width: $container-min-with;
+      @media only screen and (min-width: 600px) {
+        margin: 50px 0;
+      }
+      .sports-poll{
+        @include flex(column,center);
+        background-image: url('./images/shape.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        &_title{
+          color: $font-second-color;
+          margin-bottom: 0;
+        }
+        &_content{
+          @include flex(row,flex-end);
+          justify-content: space-around;
+          &>div{
+            flex: 1;
+            text-align: center;
+          }
+        }
+        &_draw{
+          .info-label{
+            color: $font-second-color;
+            padding-right: 15px;
+          }
+          img{
+            @media only screen and (min-width: 600px) {
+              margin: 30px 0 45px 0;
+            }
+          }
+        }
+        img.team-logo{
+          width: 75%;
+          max-width: 200px;
+          @media only screen and (min-width: 600px) {
+            width: 100%;
+          }
+        }
+      }
+
+      .h-line{
+        width: 100%;
+        border: 1px solid $font-second-color;
+        margin: 15px 0;
+      }
+      .history{
+        &_no-votes{
+          color: $font-second-color;
+        }
+        &_title{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: calc(100% - 110px);
+          justify-content: space-between;
+          &-switcher{
+            cursor: pointer;
+            padding-left:10px;
+            color: blue;
+          }
+          &-info{
+            color: $font-second-color;
+            font-weight: 800;
+            strong{
+              color: black;
+            }
+          }
+        }
+        @include flex(column,center);
+        margin-bottom: 50px;
+        &_list{
+          @include flex(column,center);
+          width: 100%;
+          @media only screen and (min-width: 600px) {
+            width: calc(100% - 110px);
+          }
+          height: 150px;
+          overflow-y: auto;
+          .history-item{
+            @include flex(row,center);
+            height: auto;
+            &:nth-child(odd){
+              background-color: $history-item-bg;
+            }
+            &>div{
+              flex:1;
+              display: flex;
+              justify-content: center;
+              text-align: center;
+            }
+            &_vote-type{
+              height: 30px;
+              width: 100%;
+              max-width: 150px;
+              line-height: 30px;
+
+            }
+          }
+        }
+
+      }
+
+
+
+      .bg-home{
+        background-color: $home-team-color;
+        color: $white;
+      }
+      .bg-away{
+        background-color: $away-team-color;
+        color: $white;
+      }
+      .bg-draw{
+        background-color: $draw-color;
+        color: $home-team-color;
+      }
+    }
+  }
+  .w-100{
+    width: 100%;
+  }
+  .vote-button{
+    @media only screen and (min-width: 600px) {
+      width: 100%;
+    }
+    width: 80%;
+    max-width: 250px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    color: $white;
+    cursor: pointer;
+    font-size: 18px;
+
+  }
+
+  .custom-scroll::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+
+  .custom-scroll::-webkit-scrollbar
+  {
+    width: 6px;
+    background-color: #F5F5F5;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb
+  {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: $home-team-color;
+  }
+}
+
+
+
